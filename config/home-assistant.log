@@ -1,0 +1,19 @@
+15-10-25 14:37:29 homeassistant.components.mqtt: Missing required configuration items in mqtt: broker
+15-10-25 14:37:29 homeassistant.bootstrap: component mqtt failed to initialize
+15-10-25 14:37:29 homeassistant.bootstrap: Unable to prepare setup for platform switch.rasp_as_switch because dependency mqtt could not be initialized
+15-10-25 14:37:29 homeassistant.bootstrap: Error during setup of component switch
+Traceback (most recent call last):
+  File "/Users/rohitranjan/Projects/Projects/SourceTree/home-assistant/homeassistant/bootstrap.py", line 96, in _setup_component
+    if not component.setup(hass, config):
+  File "/Users/rohitranjan/Projects/Projects/SourceTree/home-assistant/homeassistant/components/switch/__init__.py", line 73, in setup
+    component.setup(config)
+  File "/Users/rohitranjan/Projects/Projects/SourceTree/home-assistant/homeassistant/helpers/entity_component.py", line 51, in setup
+    config_per_platform(config, self.domain, self.logger):
+  File "/Users/rohitranjan/Projects/Projects/SourceTree/home-assistant/homeassistant/helpers/__init__.py", line 78, in config_per_platform
+    for config_key in extract_domain_configs(config, domain):
+  File "/Users/rohitranjan/Projects/Projects/SourceTree/home-assistant/homeassistant/helpers/__init__.py", line 99, in <genexpr>
+    return (key for key in config.keys() if pattern.match(key))
+RuntimeError: dictionary changed size during iteration
+15-10-25 14:37:29 homeassistant.components.mqtt: Missing required configuration items in mqtt: broker
+15-10-25 14:37:29 homeassistant.bootstrap: component mqtt failed to initialize
+15-10-25 14:37:29 homeassistant.bootstrap: Unable to prepare setup for platform light.esp_light because dependency mqtt could not be initialized

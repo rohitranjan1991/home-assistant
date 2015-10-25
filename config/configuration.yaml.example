@@ -22,6 +22,8 @@ http:
   # Set to 1 to enable development mode
   # development: 1
 
+
+
 light:
 #  platform: hue
 

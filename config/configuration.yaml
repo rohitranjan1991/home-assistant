@@ -1,0 +1,106 @@
+homeassistant:
+  # Omitted values in this section will be auto detected using freegeoip.net
+
+  # Location required to calculate the time the sun rises and sets.
+  # Cooridinates are also used for location for weather related components.
+  # Google Maps can be used to determine more precise GPS cooridinates.
+  latitude: 17.4374680
+  longitude: 78.3742680
+
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+
+  # Pick yours from here:
+  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Kolkata
+
+  # Name of the location where Home Assistant is running
+  name: Home
+
+# View all events in a logbook
+logbook:
+
+# Discover some devices automatically
+discovery:
+
+# Enables support for tracking state changes over time.
+history:
+
+# Track the sun
+#sun:
+
+# Allows you to issue voice commands from the frontend
+conversation:
+
+# Enables the frontend
+frontend:
+
+#mqtt
+mqtt:
+  broker: 192.168.1.7
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 120
+
+switch:
+  platform: rasp_as_switch
+  entity_id: rasp_switches
+  switches:
+    # Living Room Switches
+    FAN:
+       switch_id: switch_fan
+       switch_name: FAN
+       command_topic: home-assistant/livingRoom/set
+       state_topic: home-assistant/livingRoom
+
+
+
+
+light:
+  platform: esp_light
+  entity_id: esp_light_test
+  lights:
+
+    #Kitchen Switches
+    KitchenBulb:
+        light_id: switch_kitchen_bulb
+        light_name: Kitchen CFL
+        light_state: False
+        command_topic: home-assistant/kitchen/set
+        state_topic: home-assistant/kitchen
+
+    #Bathroom Siwtches
+    BathroomBulb:
+        light_id: switch_bathroom_bulb
+        light_name: Bathroom CFL
+        light_state: False
+        command_topic: home-assistant/bathroom/set
+        state_topic: home-assistant/bathroom
+
+    #living Room
+    TubeLight:
+       light_id: switch_tube_light
+       light_name: Tube Light
+       light_state: False
+       switch_number : 1
+       command_topic: /ha/livingRoom/set
+       state_topic: /ha/livingRoom
+    NightBulb:
+       light_id: switch_night_bulb
+       light_name: Night Bulb
+       light_state: False
+       switch_number : 2
+       command_topic: /ha/livingRoom/set
+       state_topic: /ha/livingRoom
+
+
+
+group:
+  living_room:
+    - switch.FAN
+    - light.Tube_Light
+    - light.Night_Bulb
+  kitchen:
+    - light.Kitchen_CFL
+  bathroom:
+    - light.Bathroom_CFL

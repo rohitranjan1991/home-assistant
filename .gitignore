@@ -4,7 +4,8 @@ homeassistant/components/frontend/www_static/polymer/bower_components/*
 
 # There is not a better solution afaik..
 !config/custom_components
-config/custom_components/*
+!config/custom_components/*
+!config/*
 !config/custom_components/example.py
 !config/custom_components/hello_world.py
 !config/custom_components/mqtt_example.py
